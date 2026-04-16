@@ -1,20 +1,73 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-tabs>
+  <!-- TAB HOME -->
+  <ion-tab tab="home">
+    <ion-header class="ion-no-border">
+      <ion-toolbar class="aesthetic-toolbar">
+        <ion-title class="aesthetic-title">Outfit Score ✦</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-content class="ion-padding">
+      <div class="hero-section">
+        <ion-icon name="sparkles" class="hero-icon"></ion-icon>
+        <h2>Siap Tampil Gaya?</h2>
+        <p>Cek kecocokan outfit harianmu dan dapatkan referensi gaya terbaik untuk OOTD kamu.</p>
+      </div>
+    </ion-content>
+  </ion-tab>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+  <!-- TAB SCAN -->
+  <ion-tab tab="scan">
+    <ion-header class="ion-no-border">
+      <ion-toolbar class="aesthetic-toolbar">
+        <ion-title class="aesthetic-title">Outfit Scanner</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="ion-padding">
+      <div class="scan-container">
+        
+        <ion-icon name="scan-circle-outline" class="hero-icon-small" *ngIf="!imageSource"></ion-icon>
+        <p style="color: #8c837f; text-align: center; font-family: 'Plus Jakarta Sans';" *ngIf="!imageSource">Scan bajumu untuk melihat skor kecocokan gaya kamu hari ini.</p>
+
+        <ion-button class="btn-scan" (click)="takePicture()">
+          <ion-icon name="camera" slot="start"></ion-icon>
+          CEK OUTFIT SEKARANG
+        </ion-button>
+
+        <!-- Hasil Pindaian -->
+        <div class="result-card" *ngIf="imageSource">
+          <img [src]="imageSource">
+          
+          <div class="score-badge">
+            <h1 class="score-text">{{ outfitScore }}%</h1>
+          </div>
+
+          <p class="feedback-text">"{{ feedback }}"</p>
+          
+          <ion-button expand="block" fill="clear" color="medium" style="margin-top:10px" (click)="imageSource = null">Ulangi Cek</ion-button>
+        </div>
+        
+      </div>
+    </ion-content>
+  </ion-tab>
+
+  <!-- TAB BAR -->
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Beranda</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="scan">
+      <ion-icon name="scan-circle-outline"></ion-icon>
+      <ion-label>Scan</ion-label>
+    </ion-tab-button>
+
+    <!-- Navigasi Ide Outfit -->
+    <ion-tab-button (click)="goToProfile()">
+      <ion-icon name="color-wand-outline"></ion-icon>
+      <ion-label>Ide Outfit</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

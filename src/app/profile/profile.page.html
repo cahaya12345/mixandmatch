@@ -1,0 +1,39 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="aesthetic-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" class="soft-back-btn"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="aesthetic-title">Ide Outfit</ion-title>
+  </ion-toolbar>
+  <div class="search-container">
+    <div class="search-box">
+      <ion-icon name="search-outline"></ion-icon>
+      <input type="text" placeholder="Cari gaya (Acubi, Grunge, dll)" (input)="handleInput($event)" />
+    </div>
+  </div>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="header-text">
+    <h1>Jelajahi Gaya</h1>
+    <p>Temukan inspirasi outfit aesthetic terbaik untukmu hari ini.</p>
+  </div>
+
+  <div class="empty-state" *ngIf="filteredOutfits.length === 0">
+    <ion-icon name="search-outline"></ion-icon>
+    <h3>Tidak Ditemukan</h3>
+    <p>Coba gunakan kata kunci lain untuk mencari outfit yang sesuai.</p>
+  </div>
+
+  <div class="outfit-grid" *ngIf="filteredOutfits.length > 0">
+    <div class="outfit-card" *ngFor="let outfit of filteredOutfits" (click)="showOutfitDetails(outfit)">
+      <div class="image-container">
+        <img [src]="outfit.imageUrl" [alt]="outfit.title" loading="lazy" />
+        <div class="badge-category">{{ outfit.category }}</div>
+        <div class="card-content">
+          <h3 class="outfit-title">{{ outfit.title }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
