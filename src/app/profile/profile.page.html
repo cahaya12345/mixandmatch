@@ -30,10 +30,64 @@
       <div class="image-container">
         <img [src]="outfit.imageUrl" [alt]="outfit.title" loading="lazy" />
         <div class="badge-category">{{ outfit.category }}</div>
+        <div class="ai-hint">
+          <ion-icon name="sparkles-outline"></ion-icon>
+          <span>Generate AI</span>
+        </div>
         <div class="card-content">
           <h3 class="outfit-title">{{ outfit.title }}</h3>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Modal untuk AI Generator -->
+  <ion-modal [isOpen]="isModalOpen" (didDismiss)="closeModal()">
+    <ng-template>
+      <ion-header class="ion-no-border">
+        <ion-toolbar class="transparent-toolbar">
+          <ion-buttons slot="end">
+            <ion-button (click)="closeModal()">
+              <ion-icon name="close-circle-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="modal-content">
+        <!-- Tampilan Sedang Proses Generate -->
+        <div class="ai-generation-container" *ngIf="isGenerating">
+          <div class="spinner-container">
+             <ion-spinner name="crescent"></ion-spinner>
+          </div>
+          <h3>Menciptakan Mahakarya...</h3>
+          <p>AI sedang merancang gaya khusus untuk <br/><strong>{{ selectedOutfit?.title }}</strong></p>
+        </div>
+
+        <!-- Tampilan Hasil Generate -->
+        <div class="ai-result-container" *ngIf="!isGenerating">
+          <div class="result-image-wrapper">
+            <img [src]="generatedImageUrl" alt="AI Generated Fashion" class="ai-image" />
+            <div class="ai-watermark">
+              <ion-icon name="sparkles-outline"></ion-icon> AI Generated
+            </div>
+          </div>
+          <div class="result-details">
+            <h2>{{ selectedOutfit?.title }}</h2>
+            <p>Gaya Kategori: {{ selectedOutfit?.category }}</p>
+            <div class="tags">
+               <ion-badge color="light" *ngFor="let tag of selectedOutfit?.tags">#{{ tag }}</ion-badge>
+            </div>
+            
+            <div class="action-buttons">
+              <ion-button expand="block" shape="round" color="dark" class="save-btn" (click)="closeModal()">
+                Tutup
+              </ion-button>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
 </ion-content>
