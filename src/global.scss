@@ -32,6 +32,9 @@ app-root,
 app-home {
   background: #faf8f5 !important;
   color: #2c2725 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
 }
 
 /** * Override Ionic page invisible state for initial tab render.
