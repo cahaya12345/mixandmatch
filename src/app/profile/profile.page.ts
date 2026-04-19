@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { searchOutline, chevronBack, closeCircleOutline, downloadOutline, sparklesOutline } from 'ionicons/icons';
 
@@ -69,11 +70,19 @@ export class ProfilePage implements OnInit {
     }
   ];
 
-  constructor() {
+  constructor(private router: Router) {
     addIcons({ searchOutline, chevronBack, closeCircleOutline, downloadOutline, sparklesOutline });
   }
 
   ngOnInit() {
+  }
+
+  goBack() {
+    if (window.history.length > 1) {
+      window.history.back();
+      return;
+    }
+    this.router.navigate(['/home']);
   }
 
   get filteredOutfits() {

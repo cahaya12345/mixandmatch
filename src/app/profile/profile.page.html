@@ -1,7 +1,9 @@
 <ion-header class="ion-no-border">
   <ion-toolbar class="aesthetic-toolbar">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="home" class="soft-back-btn"></ion-back-button>
+      <ion-button fill="clear" class="soft-back-btn" (click)="goBack()">
+        <ion-icon slot="icon-only" name="chevron-back"></ion-icon>
+      </ion-button>
     </ion-buttons>
     <ion-title class="aesthetic-title">Ide Outfit</ion-title>
   </ion-toolbar>
@@ -26,7 +28,7 @@
   </div>
 
   <div class="outfit-grid" *ngIf="filteredOutfits.length > 0">
-    <div class="outfit-card" *ngFor="let outfit of filteredOutfits" (click)="showOutfitDetails(outfit)">
+    <button type="button" class="outfit-card" *ngFor="let outfit of filteredOutfits" (click)="showOutfitDetails(outfit)">
       <div class="image-container">
         <img [src]="outfit.imageUrl" [alt]="outfit.title" loading="lazy" />
         <div class="badge-category">{{ outfit.category }}</div>
@@ -34,7 +36,7 @@
       <div class="card-content">
         <h3 class="outfit-title">{{ outfit.title }}</h3>
       </div>
-    </div>
+    </button>
   </div>
 
   <ion-modal [isOpen]="isModalOpen" (didDismiss)="closeModal()">

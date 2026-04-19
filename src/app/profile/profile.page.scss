@@ -114,6 +114,15 @@ ion-content {
   cursor: pointer;
   background: #ffffff;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border: none;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.outfit-card:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(44, 39, 37, 0.12);
 }
 
 .outfit-card:active {
