@@ -35,6 +35,8 @@ app-home {
   overflow-x: hidden !important;
   overflow-y: auto !important;
   -webkit-overflow-scrolling: touch !important;
+  position: static !important;
+  min-height: 100vh !important;
 }
 
 /** * Override Ionic page invisible state for initial tab render.
