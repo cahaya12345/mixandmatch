@@ -7,132 +7,152 @@ ion-content {
 
 .aesthetic-toolbar {
   --background: #faf8f5;
-  --min-height: 60px;
+  --min-height: 64px;
 }
 
 .aesthetic-title {
   color: #3b3330;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
-  font-size: 1.2rem;
-  letter-spacing: -0.5px;
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
 }
 
 .hero-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-top: 60px;
-  padding: 0 20px;
   text-align: center;
+  padding-top: 48px;
+  padding-bottom: 24px;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #3b3330;
 
   .hero-icon {
-    font-size: 90px;
-    color: #4a423f;
+    font-size: 62px;
     margin-bottom: 20px;
+    color: #4a423f;
     filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.05));
     animation: float 4s ease-in-out infinite;
   }
 
   h2 {
-    font-size: 2rem;
+    font-size: 2.1rem;
     font-weight: 800;
     color: #2c2725;
     margin-bottom: 10px;
-    letter-spacing: -1px;
+    letter-spacing: -0.8px;
   }
 
   p {
     font-size: 1rem;
     color: #8c837f;
-    line-height: 1.5;
-    max-width: 300px;
+    line-height: 1.55;
+    max-width: 540px;
   }
 }
 
 .scan-container {
-  padding: 20px;
+  margin: 0 auto;
+  padding: 28px 20px 32px;
+  width: 100%;
+  max-width: 760px;
+  border-radius: 28px;
+  background: #ffffff;
+  box-shadow: 0 26px 60px rgba(121, 109, 101, 0.12);
   display: flex;
   flex-direction: column;
   align-items: center;
+}
 
-  .hero-icon-small {
-    font-size: 60px;
-    color: #8c837f;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    opacity: 0.6;
-  }
+.hero-icon-small {
+  font-size: 58px;
+  color: #8c837f;
+  margin-top: 18px;
+  margin-bottom: 10px;
+  opacity: 0.6;
+}
 
-  .btn-scan {
-    --background: #2c2725;
-    --background-activated: #1a1716;
-    --border-radius: 20px;
-    --box-shadow: 0 8px 20px rgba(44, 39, 37, 0.2);
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-top: 20px;
-    width: 100%;
-    max-width: 300px;
-  }
+.scan-description {
+  color: #8c837f;
+  text-align: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin-bottom: 18px;
+}
 
-  .profile-button {
-    margin-top: 30px;
-    width: 100%;
-    max-width: 300px;
-    --border-radius: 20px;
-  }
+.btn-scan {
+  --background: #2c2725;
+  --background-activated: #1a1716;
+  --border-radius: 20px;
+  --box-shadow: 0 8px 20px rgba(44, 39, 37, 0.2);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-top: 12px;
+  width: 100%;
+  max-width: 320px;
+}
+
+.profile-button {
+  margin-top: 28px;
+  width: 100%;
+  max-width: 320px;
+  --border-radius: 24px;
+  --box-shadow: 0 18px 30px rgba(0, 0, 0, 0.08);
 }
 
 .result-card {
-  background: white;
+  background: #f9f5f0;
   border-radius: 24px;
   padding: 20px;
   margin-top: 30px;
   width: 100%;
   max-width: 340px;
-  box-shadow: 0 12px 30px rgba(149, 138, 126, 0.1);
-  border: 1px solid rgba(230, 222, 215, 0.5);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   align-items: center;
+}
 
-  img {
-    border-radius: 16px;
-    max-height: 320px;
-    width: 100%;
-    object-fit: cover;
-    margin-bottom: 15px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
-  }
+.result-card img {
+  border-radius: 20px;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
 
-  .score-badge {
-    background: #faf8f5;
-    border-radius: 30px;
-    padding: 10px 30px;
-    border: 1px solid #e8e3de;
-    margin-bottom: 15px;
+.score-badge {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  padding: 10px 28px;
+  border: 1px solid #e8e3de;
+  margin-bottom: 14px;
+}
 
-    .score-text {
-      color: #3b3330;
-      font-size: 2.2rem;
-      font-weight: 800;
-      margin: 0;
-      letter-spacing: -1px;
-    }
-  }
+.score-text {
+  color: #3b3330;
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -1px;
+}
 
-  .feedback-text {
-    font-size: 1.1rem;
-    color: #706864;
-    font-weight: 500;
-    font-style: italic;
-    line-height: 1.4;
-    text-align: center;
-    margin: 0;
-  }
+.feedback-text {
+  font-size: 1rem;
+  color: #706864;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 1.5;
+  text-align: center;
+  margin: 0;
+}
+
+.reset-btn {
+  margin-top: 18px;
+  width: 100%;
 }
 
 ion-tab-bar {

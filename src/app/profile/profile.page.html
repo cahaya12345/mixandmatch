@@ -8,15 +8,15 @@
   <div class="search-container">
     <div class="search-box">
       <ion-icon name="search-outline"></ion-icon>
-      <input type="text" placeholder="Cari gaya (Acubi, Grunge, dll)" (input)="handleInput($event)" />
+      <input type="text" placeholder="Cari gaya..." [(ngModel)]="searchQuery" (ionInput)="handleInput($event)" />
     </div>
   </div>
 </ion-header>
 
 <ion-content class="ion-padding">
   <div class="header-text">
-    <h1>Jelajahi Gaya</h1>
-    <p>Temukan inspirasi outfit aesthetic terbaik untukmu hari ini.</p>
+    <h1>Temukan inspirasi gaya terbaru</h1>
+    <p>Gulir ke bawah untuk melihat referensi outfit full-body yang bisa kamu pakai sekarang.</p>
   </div>
 
   <div class="empty-state" *ngIf="filteredOutfits.length === 0">
@@ -30,18 +30,13 @@
       <div class="image-container">
         <img [src]="outfit.imageUrl" [alt]="outfit.title" loading="lazy" />
         <div class="badge-category">{{ outfit.category }}</div>
-        <div class="ai-hint">
-          <ion-icon name="sparkles-outline"></ion-icon>
-          <span>Generate AI</span>
-        </div>
-        <div class="card-content">
-          <h3 class="outfit-title">{{ outfit.title }}</h3>
-        </div>
+      </div>
+      <div class="card-content">
+        <h3 class="outfit-title">{{ outfit.title }}</h3>
       </div>
     </div>
   </div>
 
-  <!-- Modal untuk AI Generator -->
   <ion-modal [isOpen]="isModalOpen" (didDismiss)="closeModal()">
     <ng-template>
       <ion-header class="ion-no-border">
@@ -55,35 +50,18 @@
       </ion-header>
 
       <ion-content class="modal-content">
-        <!-- Tampilan Sedang Proses Generate -->
-        <div class="ai-generation-container" *ngIf="isGenerating">
-          <div class="spinner-container">
-             <ion-spinner name="crescent"></ion-spinner>
-          </div>
-          <h3>Menciptakan Mahakarya...</h3>
-          <p>AI sedang merancang gaya khusus untuk <br/><strong>{{ selectedOutfit?.title }}</strong></p>
+        <div class="result-image-wrapper" *ngIf="selectedOutfit">
+          <img [src]="selectedOutfit.imageUrl" [alt]="selectedOutfit.title" class="detail-image" />
         </div>
 
-        <!-- Tampilan Hasil Generate -->
-        <div class="ai-result-container" *ngIf="!isGenerating">
-          <div class="result-image-wrapper">
-            <img [src]="generatedImageUrl" alt="AI Generated Fashion" class="ai-image" />
-            <div class="ai-watermark">
-              <ion-icon name="sparkles-outline"></ion-icon> AI Generated
-            </div>
+        <div class="result-details" *ngIf="selectedOutfit">
+          <h2>{{ selectedOutfit.title }}</h2>
+          <p>Kategori: <strong>{{ selectedOutfit.category }}</strong></p>
+          <div class="tags">
+            <ion-badge *ngFor="let tag of selectedOutfit.tags">{{ tag }}</ion-badge>
           </div>
-          <div class="result-details">
-            <h2>{{ selectedOutfit?.title }}</h2>
-            <p>Gaya Kategori: {{ selectedOutfit?.category }}</p>
-            <div class="tags">
-               <ion-badge color="light" *ngFor="let tag of selectedOutfit?.tags">#{{ tag }}</ion-badge>
-            </div>
-            
-            <div class="action-buttons">
-              <ion-button expand="block" shape="round" color="dark" class="save-btn" (click)="closeModal()">
-                Tutup
-              </ion-button>
-            </div>
+          <div class="action-buttons">
+            <ion-button expand="block" fill="solid" color="dark" (click)="closeModal()">Tutup</ion-button>
           </div>
         </div>
       </ion-content>

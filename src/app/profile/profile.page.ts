@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule, ToastController } from '@ionic/angular';
+import { IonicModule } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { searchOutline, chevronBack, closeCircleOutline, downloadOutline, sparklesOutline } from 'ionicons/icons';
 
@@ -11,7 +11,7 @@ export interface OutfitItem {
   category: string;
   tags: string[];
   imageUrl: string;
-  linkUrl?: string; // Tambahkan properti link untuk diklik
+  linkUrl?: string;
 }
 
 @Component({
@@ -22,11 +22,9 @@ export interface OutfitItem {
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class ProfilePage implements OnInit {
-  searchQuery: string = ''; // FIX ERROR: Deklarasikan properti searchQuery
+  searchQuery: string = '';
   isModalOpen: boolean = false;
-  isGenerating: boolean = false;
   selectedOutfit: OutfitItem | null = null;
-  generatedImageUrl: string = '';
 
   outfitList: OutfitItem[] = [
     { 
@@ -71,14 +69,13 @@ export class ProfilePage implements OnInit {
     }
   ];
 
-  constructor(private toastController: ToastController) {
+  constructor() {
     addIcons({ searchOutline, chevronBack, closeCircleOutline, downloadOutline, sparklesOutline });
   }
 
   ngOnInit() {
   }
 
-  // Getter: filter daftar outfit berdasarkan kata kunci (mencari ke judul, kategori, atau tags)
   get filteredOutfits() {
     if (!this.searchQuery) {
       return this.outfitList;
@@ -91,31 +88,19 @@ export class ProfilePage implements OnInit {
     );
   }
 
-  // Fungsi untuk update query secara langsung saat user mengetik
   handleInput(event: any) {
-    const query = event.target.value;
-    this.searchQuery = query;
+    this.searchQuery = event.target.value;
   }
 
-  // Fungsi saat sebuah kartu di klik
-  async showOutfitDetails(outfit: OutfitItem) {
+  showOutfitDetails(outfit: OutfitItem) {
     this.selectedOutfit = outfit;
     this.isModalOpen = true;
-    this.isGenerating = true;
-    
-    // Simulasi waktu loading untuk AI Generator
-    setTimeout(() => {
-      this.isGenerating = false;
-      this.generatedImageUrl = outfit.imageUrl; 
-    }, 2000); // Kurangi waktu loading agar lebih snappy
   }
 
-  // Tutup Modal AI
   closeModal() {
     this.isModalOpen = false;
     setTimeout(() => {
       this.selectedOutfit = null;
-      this.generatedImageUrl = '';
     }, 300);
   }
 }
