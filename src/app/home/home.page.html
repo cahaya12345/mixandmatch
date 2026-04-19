@@ -1,31 +1,17 @@
-<ion-tabs selected="home">
-  <!-- TAB HOME -->
-  <ion-tab tab="home" selected>
-    <ion-header class="ion-no-border">
-      <ion-toolbar class="aesthetic-toolbar">
-        <ion-title class="aesthetic-title">Outfit Score ✦</ion-title>
-      </ion-toolbar>
-    </ion-header>
+<ion-header class="ion-no-border">
+  <ion-toolbar class="aesthetic-toolbar">
+    <ion-title class="aesthetic-title">Outfit Score ✦</ion-title>
+  </ion-toolbar>
+</ion-header>
 
-    <ion-content class="ion-padding">
+<ion-content class="ion-padding">
       <div class="hero-section">
         <ion-icon name="sparkles" class="hero-icon"></ion-icon>
         <h2>Siap Tampil Gaya?</h2>
         <p>Cek kecocokan outfit harianmu dan dapatkan referensi gaya terbaik untuk OOTD kamu.</p>
       </div>
-    </ion-content>
-  </ion-tab>
 
-  <!-- TAB SCAN -->
-  <ion-tab tab="scan">
-    <ion-header class="ion-no-border">
-      <ion-toolbar class="aesthetic-toolbar">
-        <ion-title class="aesthetic-title">Outfit Scanner</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content class="ion-padding">
-      <div class="scan-container">
+  <div class="scan-container">
         
         <ion-icon name="scan-circle-outline" class="hero-icon-small" *ngIf="!imageSource"></ion-icon>
         <p style="color: #8c837f; text-align: center; font-family: 'Plus Jakarta Sans';" *ngIf="!imageSource">Scan bajumu untuk melihat skor kecocokan gaya kamu hari ini.</p>
@@ -49,24 +35,9 @@
         </div>
         
       </div>
-    </ion-content>
-  </ion-tab>
 
-  <!-- TAB BAR -->
-  <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home">
-        <ion-icon name="home"></ion-icon>
-        <ion-label>Beranda</ion-label>
-      </ion-tab-button>
-    <ion-tab-button tab="scan">
-      <ion-icon name="scan-circle-outline"></ion-icon>
-      <ion-label>Scan</ion-label>
-    </ion-tab-button>
-
-    <!-- Navigasi Ide Outfit -->
-    <ion-tab-button tab="home" (click)="goToProfile()">
-      <ion-icon name="color-wand-outline"></ion-icon>
-      <ion-label>Ide Outfit</ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>
+    <ion-button expand="block" fill="solid" color="dark" class="profile-button" (click)="goToProfile()">
+      <ion-icon name="color-wand-outline" slot="start"></ion-icon>
+      Ide Outfit
+    </ion-button>
+</ion-content>

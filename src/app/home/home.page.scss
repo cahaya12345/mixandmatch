@@ -77,6 +77,13 @@ ion-content {
     width: 100%;
     max-width: 300px;
   }
+
+  .profile-button {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 300px;
+    --border-radius: 20px;
+  }
 }
 
 .result-card {
