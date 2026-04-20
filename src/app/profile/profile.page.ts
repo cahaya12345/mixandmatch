@@ -78,7 +78,7 @@ export class ProfilePage implements OnInit {
   }
 
   goBack() {
-    this.router.navigateByUrl('/home', { replaceUrl: true });
+    this.router.navigate(['/home'], { replaceUrl: true });
   }
 
   get filteredOutfits() {
