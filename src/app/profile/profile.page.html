@@ -4,6 +4,12 @@
       <ion-back-button defaultHref="/home" text="Kembali" class="soft-back-btn" icon="chevron-back" routerDirection="back" (click)="goBack()"></ion-back-button>
     </ion-buttons>
     <ion-title class="aesthetic-title">Ide Outfit</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" class="soft-back-btn" (click)="goBack()">
+        <ion-icon slot="start" name="home"></ion-icon>
+        Home
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
   <div class="search-container">
     <div class="search-box">
