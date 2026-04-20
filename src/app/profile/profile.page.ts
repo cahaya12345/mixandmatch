@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { searchOutline, chevronBack, closeCircleOutline, downloadOutline, sparklesOutline } from 'ionicons/icons';
@@ -70,15 +70,23 @@ export class ProfilePage implements OnInit {
     }
   ];
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private modalCtrl: ModalController) {
     addIcons({ searchOutline, chevronBack, closeCircleOutline, downloadOutline, sparklesOutline });
   }
 
   ngOnInit() {
   }
 
+  async closeModal() {
+    try {
+      await this.modalCtrl.dismiss();
+    } catch {
+      this.router.navigate(['/home'], { replaceUrl: true });
+    }
+  }
+
   goBack() {
-    this.router.navigate(['/home'], { replaceUrl: true });
+    this.closeModal();
   }
 
   get filteredOutfits() {
@@ -102,7 +110,7 @@ export class ProfilePage implements OnInit {
     this.isModalOpen = true;
   }
 
-  closeModal() {
+  closeOutfitDetails() {
     this.isModalOpen = false;
     setTimeout(() => {
       this.selectedOutfit = null;

@@ -1,13 +1,9 @@
 <ion-header class="ion-no-border">
   <ion-toolbar class="aesthetic-toolbar">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home" text="Kembali" class="soft-back-btn" icon="chevron-back" (click)="goBack()"></ion-back-button>
-    </ion-buttons>
     <ion-title class="aesthetic-title">Ide Outfit</ion-title>
     <ion-buttons slot="end">
-      <ion-button fill="clear" class="soft-back-btn" (click)="goBack()">
-        <ion-icon slot="start" name="home"></ion-icon>
-        Home
+      <ion-button fill="clear" class="soft-back-btn" (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -43,12 +39,12 @@
     </button>
   </div>
 
-  <ion-modal [isOpen]="isModalOpen" (didDismiss)="closeModal()">
+  <ion-modal [isOpen]="isModalOpen" (didDismiss)="closeOutfitDetails()">
     <ng-template>
       <ion-header class="ion-no-border">
         <ion-toolbar class="transparent-toolbar">
           <ion-buttons slot="end">
-            <ion-button (click)="closeModal()">
+            <ion-button (click)="closeOutfitDetails()">
               <ion-icon name="close-circle-outline"></ion-icon>
             </ion-button>
           </ion-buttons>
@@ -67,7 +63,7 @@
             <ion-badge *ngFor="let tag of selectedOutfit.tags">{{ tag }}</ion-badge>
           </div>
           <div class="action-buttons">
-            <ion-button expand="block" fill="solid" color="dark" (click)="closeModal()">Tutup</ion-button>
+            <ion-button expand="block" fill="solid" color="dark" (click)="closeOutfitDetails()">Tutup</ion-button>
           </div>
         </div>
       </ion-content>
