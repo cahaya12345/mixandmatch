@@ -78,11 +78,7 @@ export class ProfilePage implements OnInit {
   }
 
   goBack() {
-    if (window.history.length > 1) {
-      window.history.back();
-      return;
-    }
-    this.router.navigate(['/home']);
+    this.router.navigateByUrl('/home', { replaceUrl: true });
   }
 
   get filteredOutfits() {
