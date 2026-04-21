@@ -71,3 +71,114 @@ ion-content {
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 /* @import "@ionic/angular/css/palettes/dark.system.css"; */
+/* --- OPERASI DARURAT CSS UNTUK VERCEL --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --plus-jakarta: 'Plus Jakarta Sans', sans-serif;
+}
+
+ion-content {
+  --background: #faf8f5 !important;
+  font-family: var(--plus-jakarta);
+}
+
+.aesthetic-toolbar {
+  --background: #faf8f5;
+  --min-height: 64px;
+}
+
+.aesthetic-title {
+  color: #3b3330;
+  font-family: var(--plus-jakarta);
+  font-weight: 700;
+  text-align: center;
+  width: 100%;
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 48px 20px 24px;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #3b3330;
+
+  .hero-icon {
+    font-size: 62px;
+    margin-bottom: 20px;
+    color: #4a423f;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  h2 {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: #2c2725;
+    margin-bottom: 10px;
+    letter-spacing: -0.8px;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #8c837f;
+    line-height: 1.55;
+  }
+}
+
+.scan-container {
+  margin: 0 auto;
+  padding: 28px 20px 32px;
+  width: 90%;
+  max-width: 760px;
+  border-radius: 28px;
+  background: #ffffff !important;
+  box-shadow: 0 26px 60px rgba(121, 109, 101, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-scan {
+  --background: #2c2725 !important;
+  --color: #ffffff !important;
+  --border-radius: 20px;
+  margin-top: 12px;
+  width: 100%;
+  max-width: 320px;
+  font-weight: 600;
+}
+
+.profile-button {
+  margin-top: 28px;
+  width: 100%;
+  max-width: 320px;
+  --background: #2c2725 !important;
+  --color: #ffffff !important;
+  --border-radius: 24px;
+}
+
+.result-card {
+  background: #f9f5f0;
+  border-radius: 24px;
+  padding: 20px;
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-text {
+  color: #3b3330;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
