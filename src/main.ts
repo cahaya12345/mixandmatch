@@ -6,7 +6,7 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader';
 defineCustomElements(window);
 
 import { AppComponent } from './app/app.component';
-import { routes } from './app/app-routing.module'; // PASTIKAN NAMA FILENYA BENAR
+import { routes } from './app/app-routing.module';
 
 bootstrapApplication(AppComponent, {
   providers: [

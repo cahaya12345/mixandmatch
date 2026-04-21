@@ -1,0 +1,70 @@
+ion-content { 
+  --background: #faf8f5 !important; 
+  font-family: 'Plus Jakarta Sans', sans-serif !important; 
+}
+
+.hero-section { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center; 
+  padding: 40px 20px; 
+  color: #3b3330; 
+}
+
+.hero-icon { 
+  font-size: 60px; 
+  color: #4a423f; 
+  margin-bottom: 15px; 
+}
+
+.scan-container { 
+  margin: 20px auto; 
+  padding: 25px; 
+  width: 90%; 
+  border-radius: 25px; 
+  background: white !important; 
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1); 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+}
+
+.btn-scan { 
+  --background: #2c2725 !important; 
+  --color: white !important; 
+  --border-radius: 15px !important; 
+  width: 100%; 
+  max-width: 300px; 
+  margin-top: 15px; 
+  font-weight: bold; 
+}
+
+.profile-button { 
+  --background: #2c2725 !important; 
+  --color: white !important; 
+  --border-radius: 20px !important; 
+  width: 100%; 
+  max-width: 300px; 
+  margin-top: 25px; 
+}
+
+.aesthetic-title { 
+  font-weight: 800; 
+  color: #2c2725; 
+  text-align: center; 
+  width: 100%; 
+}
+
+h2 { 
+  font-weight: 800; 
+  font-size: 1.8rem; 
+  margin-bottom: 8px; 
+  color: #2c2725;
+}
+
+p { 
+  color: #8c837f; 
+  font-size: 0.95rem; 
+  line-height: 1.5; 
+}
