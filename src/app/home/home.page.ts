@@ -19,7 +19,16 @@ export class HomePage {
   feedback: string = '';
 
   constructor(private modalCtrl: ModalController) {
-    addIcons({ camera, person, home, images, sparkles, scanCircleOutline, colorWandOutline });
+    // Registrasi ikon dengan key string agar aman di Vercel
+    addIcons({ 
+      'camera': camera, 
+      'person': person, 
+      'home': home, 
+      'images': images, 
+      'sparkles': sparkles, 
+      'scan-circle-outline': scanCircleOutline, 
+      'color-wand-outline': colorWandOutline 
+    });
   }
 
   async goToProfile() {
@@ -30,7 +39,6 @@ export class HomePage {
     await modal.present();
   }
 
-  // Kembali menggunakan Capacitor Native Camera secara simpel
   async takePicture() {
     try {
       const image = await Camera.getPhoto({
