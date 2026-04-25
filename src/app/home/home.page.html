@@ -1,4 +1,3 @@
-
 <ion-header class="ion-no-border">
   <ion-toolbar class="aesthetic-toolbar">
     <ion-title class="aesthetic-title">Outfit Score ✦</ion-title>
@@ -6,33 +5,35 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <div class="hero-section">
-    <ion-icon name="sparkles" class="hero-icon"></ion-icon>
-    <h2>Siap Tampil Gaya?</h2>
-    <p>Cek kecocokan outfit harianmu dan dapatkan referensi gaya terbaik untuk OOTD kamu.</p>
-  </div>
-
-  <div class="scan-container">
-    <ion-icon name="scan-circle-outline" class="hero-icon-small" *ngIf="!imageSource"></ion-icon>
-    <p class="scan-description" *ngIf="!imageSource">Scan bajumu untuk melihat skor kecocokan gaya kamu hari ini.</p>
-
-    <ion-button class="btn-scan" (click)="takePicture()">
-      <ion-icon name="camera" slot="start"></ion-icon>
-      CEK OUTFIT SEKARANG
-    </ion-button>
-
-    <div class="result-card" *ngIf="imageSource">
-      <img [src]="imageSource">
-      <div class="score-badge">
-        <h1 class="score-text">{{ outfitScore }}%</h1>
-      </div>
-      <p class="feedback-text">"{{ feedback }}"</p>
-      <ion-button expand="block" fill="clear" color="medium" class="reset-btn" (click)="imageSource = null">Ulangi Cek</ion-button>
+  <div class="main-container">
+    <div class="hero-section">
+      <ion-icon name="sparkles" class="hero-icon"></ion-icon>
+      <h2>Siap Tampil Gaya?</h2>
+      <p>Cek kecocokan outfit harianmu dan dapatkan referensi gaya terbaik untuk OOTD kamu.</p>
     </div>
 
-    <ion-button expand="block" fill="solid" color="dark" class="profile-button" (click)="goToProfile()" style="position: relative; z-index: 999; width: 100%;">
-      <ion-icon name="color-wand-outline" slot="start"></ion-icon>
-      Ide Outfit
-    </ion-button>
+    <div class="scan-container">
+      <ion-icon name="scan-circle-outline" class="hero-icon-small" *ngIf="!imageSource"></ion-icon>
+      <p class="scan-description" *ngIf="!imageSource">Scan bajumu untuk melihat skor kecocokan gaya kamu hari ini.</p>
+
+      <ion-button class="btn-scan" (click)="takePicture()">
+        <ion-icon name="camera" slot="start"></ion-icon>
+        CEK OUTFIT SEKARANG
+      </ion-button>
+
+      <div class="result-card" *ngIf="imageSource">
+        <img [src]="imageSource">
+        <div class="score-badge">
+          <h1 class="score-text">{{ outfitScore }}%</h1>
+        </div>
+        <p class="feedback-text">"{{ feedback }}"</p>
+        <ion-button expand="block" fill="clear" color="medium" class="reset-btn" (click)="imageSource = null">Ulangi Cek</ion-button>
+      </div>
+
+      <ion-button expand="block" fill="solid" color="dark" class="profile-button" (click)="goToProfile()" style="position: relative; z-index: 999; width: 100%;">
+        <ion-icon name="color-wand-outline" slot="start"></ion-icon>
+        Ide Outfit
+      </ion-button>
+    </div>
   </div>
 </ion-content>
