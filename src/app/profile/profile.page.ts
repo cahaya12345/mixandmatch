@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule, ModalController, NavController } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-import { searchOutline, chevronBack, closeCircleOutline, downloadOutline, sparklesOutline } from 'ionicons/icons';
+import { searchOutline, chevronBack, closeCircleOutline, downloadOutline, sparklesOutline, arrowBackOutline } from 'ionicons/icons';
 
 export interface OutfitItem {
   id: number;
@@ -70,12 +70,11 @@ export class ProfilePage implements OnInit {
     }
   ];
 
-  constructor(private navCtrl: NavController, private modalCtrl: ModalController) {
-    addIcons({ searchOutline, chevronBack, closeCircleOutline, downloadOutline, sparklesOutline });
+  constructor(public navCtrl: NavController, private modalCtrl: ModalController) {
+    addIcons({ searchOutline, chevronBack, closeCircleOutline, downloadOutline, sparklesOutline, arrowBackOutline });
   }
 
   ngOnInit() {
-    this.updateDisplayOutfits();
   }
 
   ionViewWillEnter() {
