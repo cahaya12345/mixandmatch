@@ -1,23 +1,10 @@
 ion-header {
-  background-color: #faf8f5; /* ensure consistency with content */
-}
-
-.aesthetic-toolbar {
-  --background: transparent;
+  padding-top: calc(var(--ion-safe-area-top, 0px) + 15px) !important;
 }
 
 ion-content { 
   --background: #faf8f5 !important; 
   font-family: 'Plus Jakarta Sans', sans-serif !important; 
-}
-
-/* CONTAINER UTAMA - MEMASTIKAN DI TENGAH */
-.main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100%; /* Matches min-height 100vh behavior inside ion-content */
 }
 
 .hero-section { 
@@ -47,46 +34,30 @@ ion-content {
   align-items: center; 
 }
 
-/* PROTEKSI BORDER & BACKGROUND AGAR TIDAK HILANG DI HP */
 .btn-scan { 
   --background: #2c2725 !important; 
-  --color: #ffffff !important; 
+  --color: white !important; 
   --border-radius: 15px !important; 
-  --border-width: 2px !important;
-  --border-style: solid !important;
-  --border-color: #2c2725 !important;
-  background: #2c2725 !important;
-  border-radius: 15px !important;
-  color: #ffffff !important;
   width: 100%; 
   max-width: 300px; 
-  margin-top: 15px !important; 
+  margin-top: 15px; 
   font-weight: bold; 
 }
 
 .profile-button { 
   --background: #2c2725 !important; 
-  --color: #ffffff !important; 
+  --color: white !important; 
   --border-radius: 20px !important; 
-  --border-width: 2px !important;
-  --border-style: solid !important;
-  --border-color: #2c2725 !important;
-  background: #2c2725 !important;
-  border-radius: 20px !important;
-  color: #ffffff !important;
   width: 100%; 
   max-width: 300px; 
-  margin-top: 25px !important; 
+  margin-top: 25px; 
 }
 
-/* PROTEKSI SAFE AREA PADA JUDUL PALING ATAS */
 .aesthetic-title { 
   font-weight: 800; 
-  color: #2c2725 !important; 
+  color: #2c2725; 
   text-align: center; 
   width: 100%; 
-  margin-top: calc(var(--ion-safe-area-top, 0px) + 20px) !important;
-  display: block;
 }
 
 h2 { 
