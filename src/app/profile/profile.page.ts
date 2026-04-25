@@ -78,11 +78,7 @@ export class ProfilePage implements OnInit {
   }
 
   async closeModal() {
-    try {
-      await this.modalCtrl.dismiss();
-    } catch {
-      this.router.navigate(['/home'], { replaceUrl: true });
-    }
+    this.router.navigate(['/home'], { replaceUrl: true });
   }
 
   goBack() {
