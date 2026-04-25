@@ -25,6 +25,7 @@ export class ProfilePage implements OnInit {
   searchQuery: string = '';
   isModalOpen: boolean = false;
   selectedOutfit: OutfitItem | null = null;
+  displayOutfits: OutfitItem[] = [];
 
   outfitList: OutfitItem[] = [
     { 
@@ -74,22 +75,21 @@ export class ProfilePage implements OnInit {
   }
 
   ngOnInit() {
+    this.updateDisplayOutfits();
   }
 
-  async closeModal() {
-    this.navCtrl.navigateBack('/home');
+  ionViewWillEnter() {
+    // Ensures text and data are ready before transition animation ends
+    this.updateDisplayOutfits();
   }
 
-  goBack() {
-    this.closeModal();
-  }
-
-  get filteredOutfits() {
+  updateDisplayOutfits() {
     if (!this.searchQuery) {
-      return this.outfitList;
+      this.displayOutfits = [...this.outfitList];
+      return;
     }
     const lowerQuery = this.searchQuery.toLowerCase();
-    return this.outfitList.filter(item => 
+    this.displayOutfits = this.outfitList.filter(item => 
       item.title.toLowerCase().includes(lowerQuery) || 
       item.category.toLowerCase().includes(lowerQuery) ||
       item.tags.some(tag => tag.toLowerCase().includes(lowerQuery))
@@ -98,6 +98,7 @@ export class ProfilePage implements OnInit {
 
   handleInput(event: any) {
     this.searchQuery = event.target.value;
+    this.updateDisplayOutfits();
   }
 
   showOutfitDetails(outfit: OutfitItem) {

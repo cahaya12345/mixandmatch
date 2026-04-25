@@ -1,11 +1,9 @@
 <ion-header class="ion-no-border">
   <ion-toolbar class="aesthetic-toolbar">
-    <ion-title class="aesthetic-title">Ide Outfit</ion-title>
-    <ion-buttons slot="end">
-      <ion-button fill="clear" class="soft-back-btn" (click)="closeModal()">
-        <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
-      </ion-button>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
     </ion-buttons>
+    <ion-title class="aesthetic-title">Ide Outfit</ion-title>
   </ion-toolbar>
   <div class="search-container">
     <div class="search-box">
@@ -21,14 +19,14 @@
     <p>Gulir ke bawah untuk melihat referensi outfit full-body yang bisa kamu pakai sekarang.</p>
   </div>
 
-  <div class="empty-state" *ngIf="filteredOutfits.length === 0">
+  <div class="empty-state" *ngIf="displayOutfits.length === 0">
     <ion-icon name="search-outline"></ion-icon>
     <h3>Tidak Ditemukan</h3>
     <p>Coba gunakan kata kunci lain untuk mencari outfit yang sesuai.</p>
   </div>
 
-  <div class="outfit-grid" *ngIf="filteredOutfits.length > 0">
-    <button type="button" class="outfit-card" *ngFor="let outfit of filteredOutfits" (click)="showOutfitDetails(outfit)">
+  <div class="outfit-grid" *ngIf="displayOutfits.length > 0">
+    <button type="button" class="outfit-card" *ngFor="let outfit of displayOutfits" (click)="showOutfitDetails(outfit)">
       <div class="image-container">
         <img [src]="outfit.imageUrl" [alt]="outfit.title" loading="lazy" />
         <div class="badge-category">{{ outfit.category }}</div>
@@ -38,6 +36,8 @@
       </div>
     </button>
   </div>
+
+</ion-content>
 
   <ion-modal [isOpen]="isModalOpen" (didDismiss)="closeOutfitDetails()">
     <ng-template>
@@ -69,5 +69,3 @@
       </ion-content>
     </ng-template>
   </ion-modal>
-
-</ion-content>
