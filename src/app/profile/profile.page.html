@@ -11,7 +11,7 @@
   <div class="search-container">
     <div class="search-box">
       <ion-icon name="search-outline"></ion-icon>
-      <input type="text" placeholder="Cari gaya..." [(ngModel)]="searchQuery" (ionInput)="handleInput($event)" />
+      <input type="text" placeholder="Cari gaya..." [(ngModel)]="searchQuery" (ngModelChange)="updateDisplayOutfits()" />
     </div>
   </div>
 </ion-header>

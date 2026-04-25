@@ -87,21 +87,16 @@ export class ProfilePage implements OnInit {
   }
 
   updateDisplayOutfits() {
-    if (!this.searchQuery) {
+    if (!this.searchQuery || this.searchQuery.trim() === '') {
       this.displayOutfits = [...this.outfitList];
       return;
     }
-    const lowerQuery = this.searchQuery.toLowerCase();
+    const lowerQuery = this.searchQuery.toLowerCase().trim();
     this.displayOutfits = this.outfitList.filter(item => 
       item.title.toLowerCase().includes(lowerQuery) || 
       item.category.toLowerCase().includes(lowerQuery) ||
       item.tags.some(tag => tag.toLowerCase().includes(lowerQuery))
     );
-  }
-
-  handleInput(event: any) {
-    this.searchQuery = event.target.value;
-    this.updateDisplayOutfits();
   }
 
   showOutfitDetails(outfit: OutfitItem) {
