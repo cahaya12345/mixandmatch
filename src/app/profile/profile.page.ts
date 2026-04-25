@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule, ModalController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { IonicModule, ModalController, NavController } from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { searchOutline, chevronBack, closeCircleOutline, downloadOutline, sparklesOutline } from 'ionicons/icons';
 
@@ -70,7 +69,7 @@ export class ProfilePage implements OnInit {
     }
   ];
 
-  constructor(private router: Router, private modalCtrl: ModalController) {
+  constructor(private navCtrl: NavController, private modalCtrl: ModalController) {
     addIcons({ searchOutline, chevronBack, closeCircleOutline, downloadOutline, sparklesOutline });
   }
 
@@ -78,7 +77,7 @@ export class ProfilePage implements OnInit {
   }
 
   async closeModal() {
-    this.router.navigate(['/home'], { replaceUrl: true });
+    this.navCtrl.navigateBack('/home');
   }
 
   goBack() {

@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule, ModalController } from '@ionic/angular';
+import { IonicModule, ModalController, NavController } from '@ionic/angular';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { addIcons } from 'ionicons';
-import { Router } from '@angular/router';
 import { camera, person, home, images, sparkles, scanCircleOutline, colorWandOutline } from 'ionicons/icons';
 
 
@@ -19,7 +18,7 @@ export class HomePage {
   outfitScore: number | null = null;
   feedback: string = '';
 
-  constructor(private router: Router) {
+  constructor(private navCtrl: NavController) {
     // Registrasi ikon dengan key string agar aman di Vercel
     addIcons({ 
       'camera': camera, 
@@ -33,7 +32,7 @@ export class HomePage {
   }
 
   goToProfile() {
-    this.router.navigate(['/profile']);
+    this.navCtrl.navigateForward('/profile');
   }
 
   async takePicture() {
