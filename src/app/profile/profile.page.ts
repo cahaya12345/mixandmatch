@@ -78,8 +78,12 @@ export class ProfilePage implements OnInit {
   }
 
   ionViewWillEnter() {
-    // Ensures text and data are ready before transition animation ends
-    this.updateDisplayOutfits();
+    // Gunakan requestAnimationFrame agar Angular merender UI lebih optimal saat transisi
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        this.updateDisplayOutfits();
+      }, 50);
+    });
   }
 
   updateDisplayOutfits() {
@@ -110,5 +114,9 @@ export class ProfilePage implements OnInit {
     setTimeout(() => {
       this.selectedOutfit = null;
     }, 300);
+  }
+
+  trackById(index: number, item: OutfitItem) {
+    return item.id;
   }
 }
