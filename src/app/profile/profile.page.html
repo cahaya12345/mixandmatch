@@ -1,9 +1,9 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar class="aesthetic-toolbar">
+<ion-header>
+  <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="home"></ion-back-button>
+      <ion-back-button defaultHref="/home" text="Kembali"></ion-back-button>
     </ion-buttons>
-    <ion-title class="aesthetic-title">Ide Outfit</ion-title>
+    <ion-title>Ide Outfit</ion-title>
   </ion-toolbar>
   <div class="search-container">
     <div class="search-box">
@@ -13,7 +13,8 @@
   </div>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content>
+  <div class="container-paling-luar">
   <div class="header-text">
     <h1>Temukan inspirasi gaya terbaru</h1>
     <p>Gulir ke bawah untuk melihat referensi outfit full-body yang bisa kamu pakai sekarang.</p>
@@ -36,7 +37,7 @@
       </div>
     </button>
   </div>
-
+  </div>
 </ion-content>
 
   <ion-modal [isOpen]="isModalOpen" (didDismiss)="closeOutfitDetails()">
