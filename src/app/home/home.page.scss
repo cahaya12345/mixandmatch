@@ -1,3 +1,12 @@
+ion-header {
+  padding-top: calc(var(--ion-safe-area-top, 0px) + 15px);
+  background-color: #faf8f5; /* ensure consistency with content */
+}
+
+.aesthetic-toolbar {
+  --background: transparent;
+}
+
 ion-content { 
   --background: #faf8f5 !important; 
   font-family: 'Plus Jakarta Sans', sans-serif !important; 
