@@ -8,15 +8,15 @@
       </ion-button>
     </div>
   </ion-toolbar>
-  <div class="search-container">
-    <div class="search-box">
-      <ion-icon name="search-outline"></ion-icon>
-      <input type="text" placeholder="Cari gaya..." [(ngModel)]="searchQuery" (ngModelChange)="updateDisplayOutfits()" />
-    </div>
-  </div>
 </ion-header>
 
 <ion-content>
+  <div class="search-container">
+    <div class="search-box">
+      <ion-icon name="search-outline"></ion-icon>
+      <input type="text" placeholder="Cari gaya..." [(ngModel)]="searchQuery" (input)="updateDisplayOutfits()" />
+    </div>
+  </div>
   <div class="container-paling-luar">
   <div class="header-text">
     <h1>Temukan inspirasi gaya terbaru</h1>
@@ -43,33 +43,20 @@
   </div>
 </ion-content>
 
-  <ion-modal [isOpen]="isModalOpen" (didDismiss)="closeOutfitDetails()">
-    <ng-template>
-      <ion-header class="ion-no-border">
-        <ion-toolbar class="transparent-toolbar">
-          <ion-buttons slot="end">
-            <ion-button (click)="closeOutfitDetails()">
-              <ion-icon name="close-circle-outline"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-
-      <ion-content class="modal-content">
-        <div class="result-image-wrapper" *ngIf="selectedOutfit">
-          <img [src]="selectedOutfit.imageUrl" [alt]="selectedOutfit.title" class="detail-image" />
-        </div>
-
-        <div class="result-details" *ngIf="selectedOutfit">
-          <h2>{{ selectedOutfit.title }}</h2>
-          <p>Kategori: <strong>{{ selectedOutfit.category }}</strong></p>
-          <div class="tags">
-            <ion-badge *ngFor="let tag of selectedOutfit.tags">{{ tag }}</ion-badge>
-          </div>
-          <div class="action-buttons">
-            <ion-button expand="block" fill="solid" color="dark" (click)="closeOutfitDetails()">Tutup</ion-button>
-          </div>
-        </div>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
+  <div class="custom-overlay" *ngIf="isModalOpen" (click)="closeOutfitDetails()">
+  <div class="overlay-content" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="closeOutfitDetails()">
+      <ion-icon name="close-circle-outline"></ion-icon>
+    </button>
+    
+    <div class="image-preview" *ngIf="selectedOutfit">
+      <img [src]="selectedOutfit.imageUrl" />
+    </div>
+    
+    <div class="info-preview" *ngIf="selectedOutfit">
+      <h2>{{ selectedOutfit.title }}</h2>
+      <p>{{ selectedOutfit.category }}</p>
+      <button class="btn-tutup" (click)="closeOutfitDetails()">Tutup</button>
+    </div>
+  </div>
+</div>

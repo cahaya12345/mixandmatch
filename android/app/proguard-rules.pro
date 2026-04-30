@@ -19,3 +19,13 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# Capacitor and Cordova ProGuard Rules
+-keep class com.getcapacitor.** { *; }
+-keep class androidx.core.content.FileProvider { *; }
+-keep class org.apache.cordova.** { *; }
+-keep class android.webkit.** { *; }
+-keepattributes *Annotation*
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface <methods>;
+}

@@ -75,15 +75,11 @@ export class ProfilePage implements OnInit {
   }
 
   ngOnInit() {
+    this.updateDisplayOutfits();
   }
 
   ionViewWillEnter() {
-    // Gunakan requestAnimationFrame agar Angular merender UI lebih optimal saat transisi
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        this.updateDisplayOutfits();
-      }, 50);
-    });
+    this.updateDisplayOutfits();
   }
 
   updateDisplayOutfits() {

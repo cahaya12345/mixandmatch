@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.your.appid',
+  appId: 'com.MatchUp.app',
   appName: 'MatchUp',
   webDir: 'www',
   plugins: {

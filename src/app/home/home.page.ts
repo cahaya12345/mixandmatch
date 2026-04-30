@@ -39,6 +39,13 @@ export class HomePage {
   // Fungsi ambil foto
   async takePicture() {
     try {
+      // Meminta izin akses kamera secara eksplisit untuk Android 13+ (SDK 33)
+      const permissions = await Camera.requestPermissions();
+      if (permissions.camera !== 'granted' && permissions.camera !== 'limited') {
+         console.warn('Izin kamera ditolak');
+         return;
+      }
+
       const image = await Camera.getPhoto({
         quality: 90,
         allowEditing: false, 
@@ -50,7 +57,7 @@ export class HomePage {
       // Jalankan analisis warna setelah foto diambil
       this.analyzeOutfitColor(image.webPath!);
     } catch (error) {
-      console.log('User membatalkan ambil foto');
+      console.log('User membatalkan ambil foto atau terjadi error:', error);
     }
   }
 
